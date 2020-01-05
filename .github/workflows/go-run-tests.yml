@@ -16,5 +16,15 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
 
+    - name: Restore vendor cache
+      uses: actions/cache@v1
+      id: cache
+      with:
+        path: vendor/
+        key: ${{ runner.os }}.${{ hashFiles('go.sum') }}
+
+    - name: Vendor module
+      run: go mod vendor
+
     - name: Run tests
       run: go test ./...
