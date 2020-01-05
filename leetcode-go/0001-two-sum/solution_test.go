@@ -1,7 +1,6 @@
 package solution
 
 import (
-	//"fmt"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"

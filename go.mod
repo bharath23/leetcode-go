@@ -1,4 +1,4 @@
-module github.com/bharath23/leetcode-go
+module github.com/bharath23/leetcode
 
 go 1.13
 
