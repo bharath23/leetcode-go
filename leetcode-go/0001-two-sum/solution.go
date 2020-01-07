@@ -1,4 +1,4 @@
-package solution
+package leetcode0001
 
 /*
 One-pass solution:

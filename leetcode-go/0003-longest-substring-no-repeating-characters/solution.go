@@ -1,4 +1,4 @@
-package solution
+package leetcode0003
 
 /*
 Remember if we have seen a character in the substring and remember the length

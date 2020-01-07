@@ -1,4 +1,4 @@
-package solution
+package leetcode0003
 
 import (
 	"testing"

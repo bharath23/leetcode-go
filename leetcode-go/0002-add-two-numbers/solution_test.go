@@ -1,4 +1,4 @@
-package solution
+package leetcode0002
 
 import (
 	"fmt"
