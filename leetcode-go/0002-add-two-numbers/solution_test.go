@@ -72,6 +72,11 @@ func TestSolution(t *testing.T) {
 			l2:   makeListNode([]int{5, 6, 4}),
 			want: makeListNode([]int{7, 0, 8}),
 		},
+		{
+			l1:   makeListNode([]int{5}),
+			l2:   makeListNode([]int{5}),
+			want: makeListNode([]int{0, 1}),
+		},
 	}
 
 	opt := cmp.Comparer(equalListNode)

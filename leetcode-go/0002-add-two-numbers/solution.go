@@ -15,19 +15,20 @@ type ListNode struct {
 }
 
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var l3, l, cur *ListNode
+	var l3, cur *ListNode
 	carry := 0
-	for (l1 != nil) && (l2 != nil) {
-		val := l1.Val + l2.Val + carry
-		carry = 0
-		if val >= 10 {
-			carry = 1
-			val -= 10
+	for (l1 != nil) || (l2 != nil) {
+		v := carry
+		if l1 != nil {
+			v += l1.Val
 		}
 
-		l1 = l1.Next
-		l2 = l2.Next
-		n := &ListNode{Val: val}
+		if l2 != nil {
+			v += l2.Val
+		}
+
+		carry = v / 10
+		n := &ListNode{Val: v % 10}
 		if l3 == nil {
 			l3 = n
 		}
@@ -37,46 +38,24 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 
 		cur = n
-	}
-
-	if l1 != nil {
-		l = l1
-	}
-	if l2 != nil {
-		l = l2
-	}
-	for l != nil {
-		val := l.Val + carry
-		carry = 0
-		if val >= 10 {
-			carry = 1
-			val -= 10
+		if l1 != nil {
+			l1 = l1.Next
 		}
 
-		l = l.Next
-		n := &ListNode{Val: val}
-		if l3 == nil {
-			l3 = n
+		if l2 != nil {
+			l2 = l2.Next
 		}
-
-		if cur != nil {
-			cur.Next = n
-		}
-
-		cur = n
 	}
 
 	if carry != 0 {
 		n := &ListNode{Val: carry}
-		if l3 == nil {
-			l3 = n
-		}
-
 		if cur != nil {
 			cur.Next = n
 		}
 
-		cur = n
+		if l3 == nil {
+			l3 = n
+		}
 	}
 
 	return l3
