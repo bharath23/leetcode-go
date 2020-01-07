@@ -20,8 +20,12 @@ jobs:
       uses: actions/cache@v1
       id: cache
       with:
-        path: vendor/
-        key: ${{ runner.os }}.${{ hashFiles('go.sum') }}
+        path: ~/go/pkg/mod
+        key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+        restore-keys: |
+          ${{ runner.os }}-build-{{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
 
     - name: Vendor module
       run: go mod vendor
