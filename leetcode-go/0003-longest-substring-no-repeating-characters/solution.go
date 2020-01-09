@@ -10,7 +10,7 @@ Time complexity: O(n), we might traverse the entire list twice for i and j.
 Space complexity: O(n), we need to remember the characters we have seen.
 */
 
-func lengthOfLongestSubstringv0(s string) int {
+func lengthOfLongestSubstringV0(s string) int {
 	retval := 0
 	charMap := make(map[uint8]bool)
 	i := 0
@@ -43,7 +43,7 @@ Time complexity: O(n), we might traverse the entire list twice for i and j.
 Space complexity: O(n), we need to remember the characters we have seen.
 */
 
-func lengthOfLongestSubstringv1(s string) int {
+func lengthOfLongestSubstringV1(s string) int {
 	retval := 0
 	charToIdx := make(map[uint8]int)
 	i := 0

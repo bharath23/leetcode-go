@@ -26,14 +26,14 @@ var tests = []struct {
 
 func TestSolutionv0(t *testing.T) {
 	for _, test := range tests {
-		have := lengthOfLongestSubstringv0(test.s)
+		have := lengthOfLongestSubstringV0(test.s)
 		assert.Equal(t, test.want, have, "want: %d, have: %d", test.want, have)
 	}
 }
 
 func TestSolutionv1(t *testing.T) {
 	for _, test := range tests {
-		have := lengthOfLongestSubstringv1(test.s)
+		have := lengthOfLongestSubstringV1(test.s)
 		assert.Equal(t, test.want, have, "want: %d, have: %d", test.want, have)
 	}
 }

@@ -21,11 +21,23 @@ var tests = []struct {
 		nums2: []int{3, 4},
 		want:  2.5,
 	},
+	{
+		nums1: []int{1, 2},
+		nums2: []int{1, 2, 3},
+		want:  2.0,
+	},
 }
 
-func TestSolutionv0(t *testing.T) {
+func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
-		have := findMedianSortedArraysv0(test.nums1, test.nums2)
+		have := findMedianSortedArraysV0(test.nums1, test.nums2)
+		assert.Equal(t, test.want, have, "want: %f, have: %f", test.want, have)
+	}
+}
+
+func TestSolutionV1(t *testing.T) {
+	for _, test := range tests {
+		have := findMedianSortedArraysV1(test.nums1, test.nums2)
 		assert.Equal(t, test.want, have, "want: %f, have: %f", test.want, have)
 	}
 }
