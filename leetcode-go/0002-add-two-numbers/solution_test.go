@@ -63,16 +63,19 @@ func makeListNode(ints []int) *ListNode {
 
 func TestSolution(t *testing.T) {
 	tests := []struct {
+		name string
 		l1   *ListNode
 		l2   *ListNode
 		want *ListNode
 	}{
 		{
+			name: "test 1",
 			l1:   makeListNode([]int{2, 4, 3}),
 			l2:   makeListNode([]int{5, 6, 4}),
 			want: makeListNode([]int{7, 0, 8}),
 		},
 		{
+			name: "test 2",
 			l1:   makeListNode([]int{5}),
 			l2:   makeListNode([]int{5}),
 			want: makeListNode([]int{0, 1}),
@@ -85,9 +88,7 @@ func TestSolution(t *testing.T) {
 		assert.True(
 			t,
 			cmp.Equal(test.want, have, opt),
-			"want: %s, have: %s",
-			test.want,
-			have,
+			"%s failed",
 		)
 	}
 }
