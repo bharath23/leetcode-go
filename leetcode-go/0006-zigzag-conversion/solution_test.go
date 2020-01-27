@@ -38,3 +38,10 @@ func TestSolutionV0(t *testing.T) {
 		assert.Equal(t, test.want, have, "%s failed", test.name)
 	}
 }
+
+func TestSolutionV1(t *testing.T) {
+	for _, test := range tests {
+		have := convertV1(test.s, test.numRows)
+		assert.Equal(t, test.want, have, "%s failed", test.name)
+	}
+}
