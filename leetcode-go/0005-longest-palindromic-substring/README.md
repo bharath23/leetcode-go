@@ -3,11 +3,15 @@ that the maximum length of s is 1000.
 
 **Example 1**:
 
-	Input: "babad"
-	Output: "bab"
-	Note: "aba" is also a valid answer.
+<pre><code>
+<b>Input</b>: "babad"
+<b>Output</b>: "bab"
+<b>Note</b>: "aba" is also a valid answer.
+</code></pre>
 
 **Example 2**:
 
-	Input: "cbbd"
-	Output: "bb"
+<pre><code>
+<b>Input</b>: "cbbd"
+<b>Output</b>: "bb"
+</code></pre>
