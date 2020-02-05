@@ -8,7 +8,7 @@ number 0 itself.
 **Example**:
 
 <pre><code>
-<b>Input</b>: (2 -4 -3) + (5 -6 -4)
-<b>Output</b>: 7 -0 -8
+<b>Input</b>: (2 &#8594; 4 &#8594; 3) + (5 &#8594; 6 &#8594; 4)
+<b>Output</b>: 7 &#8594; 0 &#8594; 8
 <b>Explanation</b>: 342 + 465 = 807.
 </code></pre>
