@@ -3,8 +3,7 @@ package leetcode0001
 import (
 	"testing"
 
-	"github.com/google/go-cmp/cmp"
-	"github.com/jgroeneveld/trial/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSolution(t *testing.T) {
@@ -24,11 +23,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := twoSums(test.nums, test.target)
-		assert.True(
-			t,
-			cmp.Equal(test.want, have),
-			"%s failed",
-			test.name,
-		)
+		assert.Equalf(t, test.want, have, "%s failed", test.name)
 	}
 }

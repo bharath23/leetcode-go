@@ -3,7 +3,7 @@ package leetcode0012
 import (
 	"testing"
 
-	"github.com/jgroeneveld/trial/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 var tests = []struct {
@@ -41,13 +41,13 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := intToRomanV0(test.num)
-		assert.Equal(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s failed", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := intToRomanV1(test.num)
-		assert.Equal(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s failed", test.name)
 	}
 }

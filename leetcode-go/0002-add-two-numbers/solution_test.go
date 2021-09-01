@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
-	"github.com/jgroeneveld/trial/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func (l *ListNode) String() string {
@@ -85,7 +85,7 @@ func TestSolution(t *testing.T) {
 	opt := cmp.Comparer(equalListNode)
 	for _, test := range tests {
 		have := addTwoNumbers(test.l1, test.l2)
-		assert.True(
+		assert.Truef(
 			t,
 			cmp.Equal(test.want, have, opt),
 			"%s failed",
