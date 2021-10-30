@@ -37,7 +37,7 @@ func TestSolutionV0(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumClosestV0(nums, test.target)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: sum doesnt match", test.name)
 	}
 }
 
@@ -46,6 +46,6 @@ func TestSolutionV1(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumClosestV1(nums, test.target)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: sum doesnt match", test.name)
 	}
 }

@@ -36,13 +36,13 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := maxAreaV0(test.height)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: maximum area does not match", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := maxAreaV1(test.height)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: maximum area does not match", test.name)
 	}
 }

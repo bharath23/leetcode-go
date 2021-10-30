@@ -33,7 +33,7 @@ func TestSolutionV0(t *testing.T) {
 		arr := make([]int, len(test.arr))
 		copy(arr, test.arr)
 		duplicateZerosV0(arr)
-		assert.Equalf(t, test.want, arr, "%s failed", test.name)
+		assert.Equalf(t, test.want, arr, "%s: duplicated array do not match", test.name)
 	}
 }
 
@@ -42,6 +42,6 @@ func TestSolutionV1(t *testing.T) {
 		arr := make([]int, len(test.arr))
 		copy(arr, test.arr)
 		duplicateZerosV1(arr)
-		assert.Equalf(t, test.want, arr, "%s failed", test.name)
+		assert.Equalf(t, test.want, arr, "%s: duplicated array do not match", test.name)
 	}
 }

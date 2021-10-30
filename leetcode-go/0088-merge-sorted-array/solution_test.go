@@ -45,7 +45,7 @@ func TestSolutionV0(t *testing.T) {
 		nums1 := make([]int, len(test.nums1))
 		copy(nums1, test.nums1)
 		mergeV0(nums1, test.m, test.nums2, test.n)
-		assert.Equalf(t, test.want, nums1, "%s failed", test.name)
+		assert.Equalf(t, test.want, nums1, "%s: merged arrays dont match", test.name)
 	}
 }
 

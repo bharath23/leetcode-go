@@ -31,13 +31,13 @@ var tests = []struct {
 func TestSolutionv0(t *testing.T) {
 	for _, test := range tests {
 		have := lengthOfLongestSubstringV0(test.s)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest substring length do not match", test.name)
 	}
 }
 
 func TestSolutionv1(t *testing.T) {
 	for _, test := range tests {
 		have := lengthOfLongestSubstringV1(test.s)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest substring length do not match", test.name)
 	}
 }

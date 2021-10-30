@@ -26,6 +26,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := findNumbers(test.nums)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: number of event digit numbers do not match", test.name)
 	}
 }

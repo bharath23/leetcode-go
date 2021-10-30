@@ -36,6 +36,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := reverse(test.x)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: reversed string do not match", test.name)
 	}
 }

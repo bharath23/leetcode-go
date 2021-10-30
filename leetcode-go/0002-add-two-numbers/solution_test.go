@@ -88,7 +88,7 @@ func TestSolution(t *testing.T) {
 		assert.Truef(
 			t,
 			cmp.Equal(test.want, have, opt),
-			"%s failed",
+			"%s: sum do not match",
 		)
 	}
 }

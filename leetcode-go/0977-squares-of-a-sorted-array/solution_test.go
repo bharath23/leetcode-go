@@ -26,13 +26,13 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := sortedSquaresV0(test.nums)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: sorted squares do not match", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := sortedSquaresV1(test.nums)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: sorted squares do not match", test.name)
 	}
 }

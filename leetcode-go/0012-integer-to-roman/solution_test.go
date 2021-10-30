@@ -41,13 +41,13 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := intToRomanV0(test.num)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: converted roman numeral do not match", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := intToRomanV1(test.num)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: converted roman numeral do not match", test.name)
 	}
 }

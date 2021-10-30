@@ -49,20 +49,20 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := longestCommonPrefixV0(test.strs)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest common prefix do not match", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := longestCommonPrefixV1(test.strs)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest common prefix do not match", test.name)
 	}
 }
 
 func TestSolutionV2(t *testing.T) {
 	for _, test := range tests {
 		have := longestCommonPrefixV2(test.strs)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest common prefix do not match", test.name)
 	}
 }

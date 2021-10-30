@@ -40,14 +40,14 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := letterCombinationsV0(test.digits)
-		assert.ElementsMatchf(t, test.want, have, "%s failed", test.name)
+		assert.ElementsMatchf(t, test.want, have, "%s: possible combination generated does not match", test.name)
 	}
 }
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
 		have := letterCombinationsV1(test.digits)
-		assert.ElementsMatchf(t, test.want, have, "%s failed", test.name)
+		assert.ElementsMatchf(t, test.want, have, "%s: possible combination generated does not match", test.name)
 	}
 }
 

@@ -26,6 +26,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := findMaxConsecutiveOnes(test.nums)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: max consecutive ones count mismatch", test.name)
 	}
 }

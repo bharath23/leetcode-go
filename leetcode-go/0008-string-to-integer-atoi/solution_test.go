@@ -41,6 +41,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := atoi(test.str)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: atoi conversion mismatch", test.name)
 	}
 }

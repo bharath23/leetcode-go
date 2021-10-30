@@ -47,7 +47,7 @@ var tests = []struct {
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
 		have := isMatchV0(test.s, test.p)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: regex matching failed", test.name)
 	}
 }
 

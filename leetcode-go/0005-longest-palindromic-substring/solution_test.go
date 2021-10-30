@@ -26,6 +26,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := longestPalindrome(test.s)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: longest palindrome does not match", test.name)
 	}
 }

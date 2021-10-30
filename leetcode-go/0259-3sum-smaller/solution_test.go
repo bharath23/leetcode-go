@@ -37,7 +37,7 @@ func TestSolutionV0(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumSmallerV0(nums, test.target)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: number of combinations do not match", test.name)
 	}
 }
 
@@ -46,7 +46,7 @@ func TestSolutionV1(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumSmallerV1(nums, test.target)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: number of combinations do not match", test.name)
 	}
 }
 

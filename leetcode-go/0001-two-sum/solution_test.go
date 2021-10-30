@@ -23,6 +23,6 @@ func TestSolution(t *testing.T) {
 
 	for _, test := range tests {
 		have := twoSums(test.nums, test.target)
-		assert.Equalf(t, test.want, have, "%s failed", test.name)
+		assert.Equalf(t, test.want, have, "%s: elements for sum do not match", test.name)
 	}
 }

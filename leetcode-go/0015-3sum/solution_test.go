@@ -33,7 +33,7 @@ func TestSolutionV0(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumV0(nums)
-		assert.ElementsMatchf(t, test.want, have, "%s failed", test.name)
+		assert.ElementsMatchf(t, test.want, have, "%s: three sum elements do not match", test.name)
 	}
 }
 
@@ -42,7 +42,7 @@ func TestSolutionV1(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumV1(nums)
-		assert.ElementsMatchf(t, test.want, have, "%s failed", test.name)
+		assert.ElementsMatchf(t, test.want, have, "%s: three sum elements do not match", test.name)
 	}
 }
 
@@ -51,6 +51,6 @@ func TestSolutionV2(t *testing.T) {
 		nums := make([]int, len(test.nums))
 		copy(nums, test.nums)
 		have := threeSumV2(nums)
-		assert.ElementsMatchf(t, test.want, have, "%s failed", test.name)
+		assert.ElementsMatchf(t, test.want, have, "%s: three sum elements do not match", test.name)
 	}
 }
