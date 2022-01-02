@@ -3,6 +3,7 @@ package leetcode0160
 import (
 	"testing"
 
+	"github.com/bharath23/leetcode-go/internal"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -40,56 +41,9 @@ var tests = []struct {
 	},
 }
 
-func makeLists(intersectVal, skipA, skipB int, listA, listB []int) (*ListNode, *ListNode, *ListNode) {
-	var common, headA, headB, tailA, tailB *ListNode
-	for i, v := range listA {
-		n := &ListNode{Val: v}
-		if headA == nil {
-			headA = n
-		}
-
-		if tailA != nil {
-			tailA.Next = n
-		}
-
-		tailA = n
-		if (i == skipA) && (intersectVal == v) {
-			common = n
-		}
-	}
-
-	for i, v := range listB {
-		if (i == skipB) && (intersectVal == v) {
-			if headB == nil {
-				headB = common
-			}
-
-			if tailB != nil {
-				tailB.Next = common
-			}
-
-			tailB = tailA
-			break
-		}
-
-		n := &ListNode{Val: v}
-		if headB == nil {
-			headB = n
-		}
-
-		if tailB != nil {
-			tailB.Next = n
-		}
-
-		tailB = n
-	}
-
-	return headA, headB, common
-}
-
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
-		headA, headB, want := makeLists(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
+		headA, headB, want := internal.NewListsWithIntersection(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
 		have := getIntersectionNodeV0(headA, headB)
 		assert.Equalf(t, want, have, "%s: list intersection does not match", test.name)
 	}
@@ -97,7 +51,7 @@ func TestSolutionV0(t *testing.T) {
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
-		headA, headB, want := makeLists(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
+		headA, headB, want := internal.NewListsWithIntersection(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
 		have := getIntersectionNodeV1(headA, headB)
 		assert.Equalf(t, want, have, "%s: list intersection does not match", test.name)
 	}
@@ -105,7 +59,7 @@ func TestSolutionV1(t *testing.T) {
 
 func TestSolutionV2(t *testing.T) {
 	for _, test := range tests {
-		headA, headB, want := makeLists(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
+		headA, headB, want := internal.NewListsWithIntersection(test.intersectVal, test.skipA, test.skipB, test.listA, test.listB)
 		have := getIntersectionNodeV2(headA, headB)
 		assert.Equalf(t, want, have, "%s: list intersection does not match", test.name)
 	}

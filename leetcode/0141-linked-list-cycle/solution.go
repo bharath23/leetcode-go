@@ -1,9 +1,6 @@
 package leetcode0141
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/bharath23/leetcode-go/internal"
 
 /*
 Simple one pass solution. We use hash map to store all visited nodes. We check
@@ -16,8 +13,8 @@ Time complexity: O(n)
 Space complexity: O(n)
 */
 
-func hasCycleV0(head *ListNode) bool {
-	visited := map[*ListNode]bool{}
+func hasCycleV0(head *internal.ListNode) bool {
+	visited := map[*internal.ListNode]bool{}
 	cur := head
 	for cur != nil {
 		isVisited := visited[cur]
@@ -45,8 +42,8 @@ Time complexity: O(n)
 Space complexity: O(1)
 */
 
-func hasCycleV1(head *ListNode) bool {
-	var p1, p2 *ListNode
+func hasCycleV1(head *internal.ListNode) bool {
+	var p1, p2 *internal.ListNode
 	if head == nil {
 		return false
 	}

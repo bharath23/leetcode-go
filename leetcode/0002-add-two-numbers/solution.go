@@ -1,5 +1,7 @@
 package leetcode0002
 
+import "github.com/bharath23/leetcode-go/internal"
+
 /*
 Iterate through the lists adding the values and carry-over as request. Once
 either of the list ends process the remaning nodes
@@ -9,13 +11,8 @@ Time complexity: O(n), we traverse each element of the list once
 Space complexity: O(n), we need extra space to store the new list
 */
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
-
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	var l3, cur *ListNode
+func addTwoNumbers(l1 *internal.ListNode, l2 *internal.ListNode) *internal.ListNode {
+	var l3, cur *internal.ListNode
 	carry := 0
 	for (l1 != nil) || (l2 != nil) {
 		v := carry
@@ -28,7 +25,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 
 		carry = v / 10
-		n := &ListNode{Val: v % 10}
+		n := &internal.ListNode{Val: v % 10}
 		if l3 == nil {
 			l3 = n
 		}
@@ -48,7 +45,7 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 
 	if carry != 0 {
-		n := &ListNode{Val: carry}
+		n := &internal.ListNode{Val: carry}
 		if cur != nil {
 			cur.Next = n
 		}

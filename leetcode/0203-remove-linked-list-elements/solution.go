@@ -1,9 +1,6 @@
 package leetcode0203
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/bharath23/leetcode-go/internal"
 
 /*
 Simple one pass solution. Check if the value of the node matches the value
@@ -15,8 +12,8 @@ Complexity:
 Time complexity: O(n)
 Space complexity: O(1)
 */
-func removeElements(head *ListNode, val int) *ListNode {
-	var prev *ListNode
+func removeElements(head *internal.ListNode, val int) *internal.ListNode {
+	var prev *internal.ListNode
 	cur := head
 	for cur != nil {
 		if cur.Val == val {

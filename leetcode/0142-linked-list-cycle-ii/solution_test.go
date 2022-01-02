@@ -3,6 +3,7 @@ package leetcode0141
 import (
 	"testing"
 
+	"github.com/bharath23/leetcode-go/internal"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -33,33 +34,9 @@ var tests = []struct {
 	},
 }
 
-func makeList(input []int, pos int) (*ListNode, *ListNode) {
-	var cycle, head, tail *ListNode
-	for i, v := range input {
-		n := &ListNode{Val: v}
-		if head == nil {
-			head = n
-		}
-
-		if tail != nil {
-			tail.Next = n
-		}
-		tail = n
-		if i == pos {
-			cycle = n
-		}
-	}
-
-	if tail != nil {
-		tail.Next = cycle
-	}
-
-	return head, cycle
-}
-
 func TestSolutionV0(t *testing.T) {
 	for _, test := range tests {
-		head, want := makeList(test.input, test.pos)
+		head, want := internal.NewListFromSliceWithCycle(test.input, test.pos)
 		have := detectCycleV0(head)
 		assert.Equalf(t, want, have, "%s: testing for cycle mismatch", test.name)
 	}
@@ -67,7 +44,7 @@ func TestSolutionV0(t *testing.T) {
 
 func TestSolutionV1(t *testing.T) {
 	for _, test := range tests {
-		head, want := makeList(test.input, test.pos)
+		head, want := internal.NewListFromSliceWithCycle(test.input, test.pos)
 		have := detectCycleV1(head)
 		assert.Equalf(t, want, have, "%s: testing for cycle mismatch", test.name)
 	}

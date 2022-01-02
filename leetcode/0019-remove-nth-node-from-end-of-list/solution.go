@@ -1,9 +1,6 @@
 package leetcode0019
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/bharath23/leetcode-go/internal"
 
 /*
 Simple two pass solution. First pass count the number of nodes in the list. In
@@ -15,7 +12,7 @@ Time complexity: O(n)
 Space complexity: O(1)
 */
 
-func removeNthFromEndV0(head *ListNode, n int) *ListNode {
+func removeNthFromEndV0(head *internal.ListNode, n int) *internal.ListNode {
 	listLen := 0
 	cur := head
 	for cur != nil {
@@ -23,7 +20,7 @@ func removeNthFromEndV0(head *ListNode, n int) *ListNode {
 		cur = cur.Next
 	}
 
-	var prev *ListNode
+	var prev *internal.ListNode
 	count := 0
 	if head != nil {
 		count++
@@ -59,13 +56,13 @@ Time complexity: O(n)
 Space complexity: O(1)
 */
 
-func removeNthFromEndV1(head *ListNode, n int) *ListNode {
+func removeNthFromEndV1(head *internal.ListNode, n int) *internal.ListNode {
 	p1 := head
 	for i := 0; i < n; i++ {
 		p1 = p1.Next
 	}
 
-	var p2 *ListNode
+	var p2 *internal.ListNode
 	for p1 != nil {
 		p1 = p1.Next
 		if p2 != nil {

@@ -1,9 +1,6 @@
 package leetcode0206
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/bharath23/leetcode-go/internal"
 
 /*
 Simple one pass solution. Delete node at the head and add it to tail of the
@@ -14,7 +11,7 @@ Complexity:
 Time complexity: O(n), traverse the list once
 Space complexity: O(1), no additional space required
 */
-func reverseListV0(head *ListNode) *ListNode {
+func reverseListV0(head *internal.ListNode) *internal.ListNode {
 	cur := head
 	head = nil
 	for cur != nil {
@@ -37,9 +34,9 @@ Complexity:
 Time complexity: O(n), traverse the list once
 Space complexity: O(1), no additional space required
 */
-func reverseListV1(head *ListNode) *ListNode {
-	var reverse func(*ListNode) *ListNode
-	reverse = func(cur *ListNode) *ListNode {
+func reverseListV1(head *internal.ListNode) *internal.ListNode {
+	var reverse func(*internal.ListNode) *internal.ListNode
+	reverse = func(cur *internal.ListNode) *internal.ListNode {
 		if cur == nil {
 			return nil
 		}

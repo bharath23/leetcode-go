@@ -1,9 +1,6 @@
 package leetcode0160
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+import "github.com/bharath23/leetcode-go/internal"
 
 /*
 Simple two pass solution. For each node in listA compare with each node in
@@ -16,7 +13,7 @@ Time complexity: O(n^2)
 Space complexity: O(1)
 */
 
-func getIntersectionNodeV0(headA, headB *ListNode) *ListNode {
+func getIntersectionNodeV0(headA, headB *internal.ListNode) *internal.ListNode {
 	curA := headA
 	for curA != nil {
 		curB := headB
@@ -43,8 +40,8 @@ Time complexity: O(n)
 Space complexity: O(n)
 */
 
-func getIntersectionNodeV1(headA, headB *ListNode) *ListNode {
-	visited := map[*ListNode]bool{}
+func getIntersectionNodeV1(headA, headB *internal.ListNode) *internal.ListNode {
+	visited := map[*internal.ListNode]bool{}
 	curA := headA
 	for curA != nil {
 		visited[curA] = true
@@ -75,7 +72,7 @@ Time complexity: O(n)
 Space complexity: O(1)
 */
 
-func getIntersectionNodeV2(headA, headB *ListNode) *ListNode {
+func getIntersectionNodeV2(headA, headB *internal.ListNode) *internal.ListNode {
 	ptrA := headA
 	ptrB := headB
 	for ptrA != ptrB {

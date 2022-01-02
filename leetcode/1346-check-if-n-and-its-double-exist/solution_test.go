@@ -23,7 +23,7 @@ func TestSolution(t *testing.T) {
 			want: true,
 		},
 		{
-			name: "test 1",
+			name: "test 2",
 			arr:  []int{3, 1, 7, 11},
 			want: false,
 		},
