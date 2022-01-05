@@ -1,10 +1,9 @@
 package leetcode0707
 
-//import "fmt"
-
 type ListNode struct {
 	val  int
 	next *ListNode
+	prev *ListNode
 }
 
 type MyLinkedList struct {
@@ -31,25 +30,30 @@ func (this *MyLinkedList) Get(index int) int {
 }
 
 func (this *MyLinkedList) AddAtHead(val int) {
-	n := ListNode{val: val}
+	n := &ListNode{val: val}
 	n.next = this.head
-	this.head = &n
+	if this.head != nil {
+		this.head.prev = n
+	}
+
+	this.head = n
 	this.size++
 	if this.tail == nil {
-		this.tail = &n
+		this.tail = n
 	}
 }
 
 func (this *MyLinkedList) AddAtTail(val int) {
-	n := ListNode{val: val}
+	n := &ListNode{val: val}
 	if this.tail != nil {
-		this.tail.next = &n
+		this.tail.next = n
 	}
 
-	this.tail = &n
+	n.prev = this.tail
+	this.tail = n
 	this.size++
 	if this.head == nil {
-		this.head = &n
+		this.head = n
 	}
 }
 
@@ -58,26 +62,32 @@ func (this *MyLinkedList) AddAtIndex(index int, val int) {
 		return
 	}
 
-	n := &ListNode{val: val}
-	var prev *ListNode
-	cur := this.head
-	for i := 0; i < index; i++ {
-		prev = cur
-		cur = cur.next
-	}
-
-	n.next = cur
-	if prev != nil {
-		prev.next = n
-	}
-
 	if index == 0 {
-		this.head = n
+		this.AddAtHead(val)
+		return
 	}
 
 	if index == this.size {
-		this.tail = n
+		this.AddAtTail(val)
+		return
 	}
+
+	n := &ListNode{val: val}
+	cur := this.head
+	for i := 0; i < index; i++ {
+		cur = cur.next
+	}
+
+	if cur != nil {
+		n.prev = cur.prev
+		cur.prev = n
+	}
+
+	if n.prev != nil {
+		n.prev.next = n
+	}
+
+	n.next = cur
 	this.size++
 }
 
@@ -86,15 +96,16 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 		return
 	}
 
-	var prev *ListNode
 	cur := this.head
 	for i := 0; i < index; i++ {
-		prev = cur
 		cur = cur.next
 	}
 
-	if prev != nil {
-		prev.next = cur.next
+	if cur.prev != nil {
+		cur.prev.next = cur.next
+	}
+	if cur.next != nil {
+		cur.next.prev = cur.prev
 	}
 
 	if this.head == cur {
@@ -102,7 +113,7 @@ func (this *MyLinkedList) DeleteAtIndex(index int) {
 	}
 
 	if this.tail == cur {
-		this.tail = prev
+		this.tail = cur.prev
 	}
 
 	this.size--
