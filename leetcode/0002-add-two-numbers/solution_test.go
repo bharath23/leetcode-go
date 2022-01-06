@@ -25,6 +25,18 @@ var tests = []struct {
 		l2:   []int{5},
 		want: []int{0, 1},
 	},
+	{
+		name: "test 3",
+		l1:   []int{0},
+		l2:   []int{0},
+		want: []int{0},
+	},
+	{
+		name: "test 4",
+		l1:   []int{9, 9, 9, 9, 9, 9, 9},
+		l2:   []int{9, 9, 9, 9},
+		want: []int{8, 9, 9, 9, 0, 0, 0, 1},
+	},
 }
 
 func TestSolution(t *testing.T) {

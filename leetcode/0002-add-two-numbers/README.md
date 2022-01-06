@@ -7,10 +7,28 @@ contain a single digit. Add the two numbers and return it as a linked list.
 You may assume the two numbers do not contain any leading zero, except the
 number 0 itself.
 
-**Example**:
+**Example 1**:
 
+![](example_1.jpg)
 <pre><code>
-<b>Input</b>: (2 &#8594; 4 &#8594; 3) + (5 &#8594; 6 &#8594; 4)
-<b>Output</b>: 7 &#8594; 0 &#8594; 8
+<b>Input</b>: l1 = [2,4,3], l2 = [5,6,4]
+<b>Output</b>: [7,0,8]
 <b>Explanation</b>: 342 + 465 = 807.
 </code></pre>
+
+**Example 2**:
+<pre><code>
+<b>Input</b>: l1 = [0], l2 = [0]
+<b>Output</b>: [0]
+</code></pre>
+
+**Example 3**:
+<pre><code>
+<b>Input</b>: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+<b>Output</b>: [8,9,9,9,0,0,0,1]
+</code></pre>
+
+**Constraints**:
+- The number of nodes in each linked list is in the range `[1, 100]`.
+- `0 <= Node.val <= 9`
+- It is guaranteed that the list represents a number that does not have leading zeros.
