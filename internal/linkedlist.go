@@ -5,6 +5,26 @@ type ListNode struct {
 	Next *ListNode
 }
 
+func NewCircularListFromSlice(input []int) *ListNode {
+	var head, tail *ListNode
+	for _, v := range input {
+		n := &ListNode{Val: v}
+		if head == nil {
+			head = n
+		}
+
+		n.Next = head
+		if tail == nil {
+			tail = n
+		}
+
+		tail.Next = n
+		tail = n
+	}
+
+	return head
+}
+
 func NewListFromSlice(input []int) *ListNode {
 	var head, tail *ListNode
 	for _, v := range input {
@@ -97,6 +117,22 @@ func ListToSlice(head *ListNode) []int {
 	s := []int{}
 	for cur := head; cur != nil; cur = cur.Next {
 		s = append(s, cur.Val)
+	}
+
+	return s
+}
+
+func CircularListToSlice(head *ListNode) []int {
+	s := []int{}
+	cur := head
+	if cur != nil {
+		s = append(s, cur.Val)
+		cur = cur.Next
+	}
+
+	for cur != nil && cur != head {
+		s = append(s, cur.Val)
+		cur = cur.Next
 	}
 
 	return s
