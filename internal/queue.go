@@ -21,6 +21,10 @@ func (q *Queue) Enqueue(val interface{}) {
 }
 
 func (q *Queue) Dequeue() interface{} {
+	if q.IsEmpty() {
+		return nil
+	}
+
 	q.size--
 	value := q.values[0]
 	q.values = q.values[1:]

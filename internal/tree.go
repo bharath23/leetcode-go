@@ -6,6 +6,29 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func NewListFromTree(root *TreeNode) []int {
+	if root == nil {
+		return []int{}
+	}
+
+	result := []int{}
+	q := NewQueue()
+	q.Enqueue(root)
+	for !q.IsEmpty() {
+		node := q.Dequeue().(*TreeNode)
+		result = append(result, node.Val)
+		if node.Left != nil {
+			q.Enqueue(node.Left)
+		}
+
+		if node.Right != nil {
+			q.Enqueue(node.Right)
+		}
+	}
+
+	return result
+}
+
 func NewTreeFromList(input []int) *TreeNode {
 	if len(input) == 0 {
 		return nil
