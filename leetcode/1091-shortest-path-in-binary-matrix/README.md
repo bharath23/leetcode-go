@@ -7,12 +7,14 @@ A **clear path** in a binary matrix is a pth from the **top-left** cell (i.e., `
   The **length of a clear path** is the numberof visisted cells of this path.
 
 **Example 1**:
+
 ![](example_1.png)
 <pre><code><b>Input</b>: grid = [[0, 1], [1, 0]]
 <b>Output</b>: 2
 </code></pre>
 
 **Example 2**:
+
 ![](example_2.png)
 <pre><code><b>Input</b>: grid = [[0, 0, 0], [1, 1, 0], [1, 1, 0]]
 <b>Output</b>: 4
